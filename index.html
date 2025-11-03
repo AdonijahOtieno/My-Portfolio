@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Otieno Adonijah Ogara | R&D Mechanical Engineer & Data Scientist</title>
     <style>
-        /* All the CSS from previous response remains exactly the same */
         /* Reset and Base Styles */
         * {
             margin: 0;
@@ -122,6 +121,11 @@
             padding: 0.8rem 0;
             display: block;
             border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
         }
 
         .hamburger {
@@ -129,6 +133,7 @@
             flex-direction: column;
             cursor: pointer;
             padding: 0.5rem;
+            z-index: 1001;
         }
 
         .hamburger span {
@@ -164,6 +169,17 @@
             overflow: hidden;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
         .hero-container {
             max-width: 1280px;
             margin: 0 auto;
@@ -173,6 +189,8 @@
             gap: 3rem;
             align-items: center;
             text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-badge {
@@ -232,6 +250,7 @@
             border: 2px solid transparent;
             font-size: 1rem;
             text-align: center;
+            cursor: pointer;
         }
 
         .btn-primary {
@@ -240,11 +259,22 @@
             box-shadow: var(--shadow);
         }
 
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
         .btn-secondary {
             background: transparent;
             color: white;
             border: 2px solid rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+            border-color: white;
         }
 
         .hero-stats {
@@ -287,6 +317,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .profile-image:hover img {
+            transform: scale(1.05);
         }
 
         .image-fallback {
@@ -300,11 +335,20 @@
             justify-content: center;
             background: var(--bg-alt);
             color: var(--text-light);
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
         }
 
         .image-fallback i {
             font-size: 3rem;
             opacity: 0.7;
+            margin-bottom: 1rem;
+        }
+
+        .image-fallback span {
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         .image-overlay {
@@ -372,6 +416,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
         }
 
         .section-subtitle {
@@ -396,12 +453,23 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .about-card.main-card {
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
             text-align: center;
+        }
+
+        .about-card.main-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
         }
 
         .card-icon {
@@ -412,6 +480,20 @@
 
         .about-card.main-card .card-icon {
             color: white;
+        }
+
+        .expertise-section {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .expertise-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
         }
 
         .expertise-grid {
@@ -425,10 +507,15 @@
             align-items: flex-start;
             gap: 1.5rem;
             padding: 1.5rem;
-            background: var(--bg-white);
+            background: var(--bg-light);
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+            transition: var(--transition);
             border-left: 5px solid var(--primary-color);
+        }
+
+        .expertise-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
         }
 
         .expertise-item i {
@@ -451,6 +538,12 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .timeline-header {
@@ -499,6 +592,7 @@
             padding-left: 1.5rem;
             position: relative;
             color: var(--text-light);
+            line-height: 1.6;
         }
 
         .timeline-responsibilities li::before {
@@ -523,6 +617,16 @@
             box-shadow: var(--shadow);
             border-left: 5px solid var(--primary-color);
             position: relative;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-card.featured {
+            border: 2px solid var(--primary-color);
         }
 
         .project-badge {
@@ -535,6 +639,7 @@
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
+            box-shadow: var(--shadow);
         }
 
         .project-icon {
@@ -558,6 +663,12 @@
             font-size: 0.8rem;
             font-weight: 500;
             border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            background: var(--primary-color);
+            color: white;
         }
 
         .project-impact {
@@ -577,11 +688,13 @@
             font-size: 1.3rem;
             color: var(--primary-color);
             margin-bottom: 0.3rem;
+            font-weight: 700;
         }
 
         .impact-metric span {
             font-size: 0.8rem;
             color: var(--text-light);
+            font-weight: 500;
         }
 
         .project-award, .project-client {
@@ -617,6 +730,7 @@
             padding-left: 1.5rem;
             position: relative;
             color: var(--text-light);
+            line-height: 1.6;
         }
 
         .project-objectives li::before {
@@ -640,6 +754,12 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .education-icon {
@@ -663,6 +783,12 @@
             font-size: 0.8rem;
             font-weight: 500;
             border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .education-skills span:hover {
+            background: var(--primary-color);
+            color: white;
         }
 
         /* Conferences Section - Mobile */
@@ -678,6 +804,12 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .conference-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .conference-header {
@@ -722,6 +854,7 @@
             padding-left: 1.5rem;
             position: relative;
             color: var(--text-light);
+            line-height: 1.6;
         }
 
         .conference-highlights li::before {
@@ -743,6 +876,13 @@
             border: 2px solid var(--primary-color);
             border-radius: 25px;
             font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .conference-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
         }
 
         /* Skills Section - Mobile */
@@ -758,6 +898,12 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .skills-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .category-title {
@@ -788,6 +934,27 @@
             background: var(--bg-light);
             border-radius: var(--border-radius);
             border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+            border-left-color: var(--accent-color);
+        }
+
+        .skill-item.advanced .skill-level {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .skill-item.proficient .skill-level {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .skill-item.intermediate .skill-level {
+            color: var(--text-light);
+            font-weight: 700;
         }
 
         .certifications-grid {
@@ -804,6 +971,12 @@
             background: var(--bg-light);
             border-radius: var(--border-radius);
             border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .certification-item:hover {
+            transform: translateX(5px);
+            border-left-color: var(--accent-color);
         }
 
         .certification-item i {
@@ -834,6 +1007,12 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
         }
 
         .contact-icon {
@@ -847,6 +1026,12 @@
             justify-content: center;
             font-size: 1.2rem;
             flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            background: var(--accent-color);
+            transform: scale(1.1);
         }
 
         .contact-details {
@@ -889,6 +1074,12 @@
             font-size: 0.8rem;
             font-weight: 500;
             border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .availability-tag:hover {
+            background: var(--primary-color);
+            color: white;
         }
 
         .contact-message {
@@ -897,6 +1088,12 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .contact-message:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .action-buttons {
@@ -930,6 +1127,12 @@
             color: white;
             text-decoration: none;
             opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary-light);
         }
 
         /* Desktop Styles */
@@ -961,6 +1164,22 @@
                 padding: 0.5rem 0;
                 border: none;
                 font-size: 1rem;
+                position: relative;
+            }
+
+            .nav-menu a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--primary-color);
+                transition: var(--transition);
+            }
+
+            .nav-menu a:hover::after {
+                width: 100%;
             }
 
             .hamburger {
@@ -1053,6 +1272,17 @@
             .action-buttons {
                 flex-direction: row;
             }
+
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+            }
+
+            .footer-links {
+                justify-content: flex-end;
+            }
         }
 
         @media (min-width: 1024px) {
@@ -1072,6 +1302,113 @@
             .about-card.main-card {
                 grid-column: 1 / 2;
                 grid-row: 1 / 3;
+            }
+
+            .experience-timeline {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1c1917 0%, #dc2626 50%, #0ea5e9 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav-menu, .hamburger, .hero-buttons, .scroll-indicator,
+            .back-to-top, .conference-link, .action-buttons {
+                display: none !important;
+            }
+            
+            .section {
+                padding: 1rem 0 !important;
+                break-inside: avoid;
+            }
+            
+            .hero {
+                background: #1c1917 !important;
+                color: #000 !important;
+                min-height: auto !important;
+            }
+            
+            .profile-image {
+                border: 2px solid #000 !important;
+            }
+            
+            a {
+                color: #000 !important;
+                text-decoration: none !important;
+            }
+            
+            .project-card, .timeline-content, .education-card {
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
             }
         }
     </style>
@@ -1109,7 +1446,7 @@
             <div class="hero-content">
                 <div class="hero-badge">Engineering Synergist</div>
                 <h1>Otieno Adonijah Ogara</h1>
-                <h2>Mechanical Engineer • Data Science Practitioner • E-Mobility Innovator</h2>
+                <h2>Data-Driven R&D Engineer | Developing EV & Hardware Products for Africa | Building Sustainable Innovation Ecosystems</h2>
                 <p class="hero-description">Bridging hardware engineering with data intelligence to drive sustainable innovation in Africa's mobility revolution. Creating impact through mechanical design, data analytics, and cross-functional leadership.</p>
                 <div class="hero-buttons">
                     <a href="#mechanical-projects" class="btn btn-primary">
@@ -1138,14 +1475,17 @@
             </div>
             <div class="hero-image">
                 <div class="profile-image">
-                    <img src="profile.jpg" alt="Otieno Adonijah Ogara" onerror="this.style.display='none'">
-                    <div class="image-fallback">
+                    <!-- Smart image loading with multiple fallbacks -->
+                    <img src="profile.jpg" alt="Otieno Adonijah Ogara" 
+                         onerror="this.style.display='none'; document.getElementById('imageFallback').style.display='flex';">
+                    <div id="imageFallback" class="image-fallback" style="display: none;">
                         <i class="fas fa-user"></i>
+                        <span>Add profile.jpg to your folder</span>
                     </div>
                     <div class="image-overlay">
                         <div class="current-role">
                             <i class="fas fa-bolt"></i>
-                            <span>R&D Engineer @ Ampersand E-Mobility</span>
+
                         </div>
                     </div>
                 </div>
@@ -1313,7 +1653,7 @@
         </div>
     </section>
 
-    <!-- Mechanical Projects Section - ALL PROJECTS RESTORED -->
+    <!-- Mechanical Projects Section -->
     <section id="mechanical-projects" class="section">
         <div class="container">
             <div class="section-header">
@@ -1326,8 +1666,8 @@
                     <div class="project-icon">
                         <i class="fas fa-battery-full"></i>
                     </div>
-                    <h3>Alpha MK2 Chassis & Production System</h3>
-                    <p class="project-description">Led the complete design of Alpha MK2 battery chassis and developed a comprehensive production jig system with multiple fixtures for different components. The jig system features modular fixtures for battery mounting, electronics integration, and structural components, streamlining fabrication and assembly processes while ensuring consistent quality across production batches.</p>
+                    <h3>Alpha Electric Motorcycle Chassis Design & Production System</h3>
+                    <p class="project-description">Led the complete design of Alpha Electric Motorcycle Chassis and developed a comprehensive production jig system with multiple fixtures for different components. The jig system features modular fixtures for battery mounting, electronics integration, and structural components, streamlining fabrication and assembly processes while ensuring consistent quality across production batches.</p>
                     <div class="project-tech">
                         <span class="tech-tag">SolidWorks</span>
                         <span class="tech-tag">Jig Design</span>
@@ -1473,7 +1813,7 @@
         </div>
     </section>
 
-    <!-- Data Projects Section - ALL PROJECTS RESTORED -->
+    <!-- Data Projects Section -->
     <section id="data-projects" class="section bg-alt">
         <div class="container">
             <div class="section-header">
@@ -1603,7 +1943,7 @@
         </div>
     </section>
 
-    <!-- Conferences Section - ALL CONFERENCES RESTORED -->
+    <!-- Conferences Section -->
     <section id="conferences" class="section bg-alt">
         <div class="container">
             <div class="section-header">
@@ -1698,7 +2038,7 @@
         </div>
     </section>
 
-    <!-- Skills Section - ALL SKILLS RESTORED -->
+    <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
             <div class="section-header">
@@ -1938,44 +2278,297 @@
     </footer>
 
     <script>
-        // Mobile Navigation Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        const navbar = document.getElementById('navbar');
+        // Professional Portfolio JavaScript - Mobile Optimized
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('.nav-menu a');
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+            // Mobile menu toggle
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }));
+            // Close mobile menu when clicking on a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
 
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navbar.contains(e.target) && navMenu.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
                 }
             });
+
+            // Navbar background on scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                // Show/hide back to top button
+                toggleBackToTop();
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Active navigation highlighting
+            function setActiveNav() {
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('.nav-menu a');
+                
+                window.addEventListener('scroll', () => {
+                    let current = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.clientHeight;
+                        if (scrollY >= (sectionTop - 100)) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${current}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+            }
+
+            // Initialize active navigation
+            setActiveNav();
+
+            // Back to top functionality
+            function initBackToTop() {
+                const backToTop = document.createElement('button');
+                backToTop.className = 'back-to-top';
+                backToTop.innerHTML = '<i class="fas fa-chevron-up"></i>';
+                backToTop.setAttribute('aria-label', 'Back to top');
+                document.body.appendChild(backToTop);
+
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            function toggleBackToTop() {
+                const backToTop = document.querySelector('.back-to-top');
+                if (backToTop) {
+                    if (window.scrollY > 500) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
+                    }
+                }
+            }
+
+            // Initialize back to top
+            initBackToTop();
+
+            // Loading animation
+            function initLoadingAnimation() {
+                const loader = document.createElement('div');
+                loader.className = 'loading';
+                loader.innerHTML = `
+                    <div class="loading-content">
+                        <div class="loading-spinner"></div>
+                        <div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem;">Otieno Adonijah Ogara</div>
+                        <div style="font-size: 0.9rem; opacity: 0.8;">Engineering Synergist</div>
+                    </div>
+                `;
+                
+                document.body.appendChild(loader);
+                
+                // Remove loader after page load
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        loader.style.opacity = '0';
+                        setTimeout(() => {
+                            loader.remove();
+                        }, 500);
+                    }, 1000);
+                });
+            }
+
+            // Initialize loading animation
+            initLoadingAnimation();
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            const animatedElements = [
+                '.about-card',
+                '.expertise-item',
+                '.timeline-item',
+                '.project-card',
+                '.education-card',
+                '.conference-card',
+                '.skill-item',
+                '.certification-item',
+                '.contact-item'
+            ];
+
+            animatedElements.forEach(selector => {
+                document.querySelectorAll(selector).forEach(element => {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(30px)';
+                    observer.observe(element);
+                });
+            });
+
+            // Statistics counter animation
+            function animateStats() {
+                const stats = document.querySelectorAll('.stat-number');
+                stats.forEach(stat => {
+                    const target = parseInt(stat.textContent);
+                    let current = 0;
+                    const increment = target / 30;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            stat.textContent = target + (stat.textContent.includes('%') ? '%' : '');
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = Math.floor(current) + (stat.textContent.includes('%') ? '%' : '');
+                        }
+                    }, 60);
+                });
+            }
+
+            // Initialize stats animation when in view
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            // Observe hero stats
+            const heroStats = document.querySelector('.hero-stats');
+            if (heroStats) {
+                statsObserver.observe(heroStats);
+            }
+
+            // Smart image loading for profile picture
+            function initSmartImageLoading() {
+                const profileImg = document.querySelector('.profile-image img');
+                const fallback = document.getElementById('imageFallback');
+                
+                if (profileImg) {
+                    // Try multiple image sources
+                    const imageSources = [
+                        'profile.jpg',
+                        'Profile.jpg',
+                        'profile.JPG',
+                        'Profile.JPG',
+                        'profile.jpeg',
+                        'Profile.jpeg',
+                        'photo.jpg',
+                        'image.jpg'
+                    ];
+                    
+                    let currentIndex = 0;
+                    
+                    function tryNextImage() {
+                        if (currentIndex < imageSources.length) {
+                            profileImg.src = imageSources[currentIndex];
+                            currentIndex++;
+                        } else {
+                            // All attempts failed
+                            profileImg.style.display = 'none';
+                            if (fallback) fallback.style.display = 'flex';
+                        }
+                    }
+                    
+                    profileImg.onerror = tryNextImage;
+                    profileImg.onload = function() {
+                        if (fallback) fallback.style.display = 'none';
+                    };
+                    
+                    // Start with the first image
+                    tryNextImage();
+                }
+            }
+
+            // Initialize smart image loading
+            initSmartImageLoading();
+
+            console.log('🎯 Portfolio initialized successfully!');
+            console.log('📱 Mobile-optimized features loaded');
         });
+
+        // Utility functions
+        const PortfolioUtils = {
+            debounce: function(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            },
+
+            throttle: function(func, limit) {
+                let inThrottle;
+                return function() {
+                    const args = arguments;
+                    const context = this;
+                    if (!inThrottle) {
+                        func.apply(context, args);
+                        inThrottle = true;
+                        setTimeout(() => inThrottle = false, limit);
+                    }
+                };
+            }
+        };
     </script>
 </body>
 </html>
